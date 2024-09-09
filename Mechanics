@@ -1,0 +1,40 @@
+let goose;
+let canvas;
+let ctx;
+let gooseX = 50; 
+let gooseY = 50; 
+const gooseSpeed = 5; 
+let gameRunning = false;
+
+window.onload = function() {
+    goose = document.getElementById("goose");
+    canvas = document.getElementById("gameCanvas");
+    ctx = canvas.getContext("2d");
+    canvas.width = 800;
+    canvas.height = 400;
+    document.getElementById("start-button").addEventListener("click", startGame);
+};
+
+function startGame() {
+    gameRunning = true;
+    document.getElementById("start-button").style.display = "none";
+    goose.style.display = "none";
+    canvas.style.display = "block";
+    document.addEventListener("keydown", moveGoose);
+    gameLoop();
+}
+
+function moveGoose(event) {
+    if (event.key === "ArrowUp") gooseY -= gooseSpeed;
+    if (event.key === "ArrowDown") gooseY += gooseSpeed;
+    if (event.key === "ArrowLeft") gooseX -= gooseSpeed;
+    if (event.key === "ArrowRight") gooseX += gooseSpeed;
+}
+
+function gameLoop() {
+    if (!gameRunning) return;
+    ctx.clearRect(0, 0, canvas.width, canvas.height); 
+    ctx.fillStyle = "yellow"; 
+    ctx.fillRect(gooseX, gooseY, 50, 50); 
+    requestAnimationFrame(gameLoop);
+}
