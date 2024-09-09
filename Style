@@ -1,0 +1,32 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: lightblue;
+}
+
+h1 {
+    font-size: 3em;
+    margin-top: 50px;
+}
+
+#game-area {
+    margin-top: 20px;
+}
+
+#goose {
+    width: 150px;
+    display: block;
+    margin: 0 auto;
+}
+
+#start-button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+#gameCanvas {
+    display: none;
+    border: 2px solid black;
+    margin-top: 20px;
+}
